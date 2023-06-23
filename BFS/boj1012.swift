@@ -34,8 +34,7 @@ for _ in (0..<t) {
 }
 
 func bfs(i: Int, j: Int) {
-    let dx = [1, -1, 0, 0]
-    let dy = [0, 0, 1, -1]
+    let (dx, dy) = ([1, -1, 0, 0], [0, 0, 1, -1])
     
     var q = [(i, j)]
     graph[i][j] = 0
@@ -46,13 +45,10 @@ func bfs(i: Int, j: Int) {
             let nx = x + dx[k]
             let ny = y + dy[k]
             
-            if (0 <= nx && nx < input[1]) && (0 <= ny && ny < input[0]) {
+            if (0 <= nx && nx < input[1]) && (0 <= ny && ny < input[0]) && graph[nx][ny] == 1 {
                 q.append((nx, ny))
                 graph[nx][ny] = 0
             }
         }
     }
-    print(graph)
 }
-
-// 어쩐지 뭐가 안된다.... 졸리니까 내일 다시ㅜㅜ
